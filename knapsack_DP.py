@@ -55,12 +55,10 @@ def bottom_up_approach_knapsack(objects,sack_max_capacity):
 		
 		#from smallest to biggest capacity
 		for c in range(1,sack_max_capacity+1): #we don't care about the last column
-			print(subproblems_values)
 			subproblems_values[i][c] = max(
 				subproblems_values[i+1][c],
 				(subproblems_values[i+1][c-objects[i][0]] if c-objects[i][0]>=0 else -100000) + objects[i][1]
 				)
-			print(f"(i{i},c{c}) -> value ->{subproblems_values[i][c]}")
 		
 
 	return subproblems_values[0][sack_max_capacity]
